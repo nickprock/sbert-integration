@@ -10,7 +10,7 @@ This plugin allows you to use sentence transformer models.
 
 ![img1](https://github.com/nickprock/sbert-integration/blob/main/img/1.png)
   
-2. Choose tour model from [Sentence Transformers](https://huggingface.co/sentence-transformers).
+2. Choose tour model from [Hugging Face](https://huggingface.co).
 
 ![img2](https://github.com/nickprock/sbert-integration/blob/main/img/2.png)
 
@@ -18,4 +18,4 @@ This plugin allows you to use sentence transformer models.
 
 > **Important**
 > the first time the plugin is used it must download some dependencies, be patient.
-
+> it is critical that the model be compatible with the sentence transformers library.

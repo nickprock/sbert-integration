@@ -17,5 +17,7 @@ This plugin allows you to use sentence transformer models.
 3. Enjoy!
 
 > **Important**
+>
 > the first time the plugin is used it must download some dependencies, be patient.
+>
 > it is critical that the model be compatible with the sentence transformers library.

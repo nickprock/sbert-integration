@@ -7,7 +7,7 @@ from pydantic import ConfigDict
 
 
 class SBERTEmbedderConfig(EmbedderSettings):
-    model_name: str='paraphrase-multilingual-MiniLM-L12-v2'
+    model_name: str='sentence-transformers/all-MiniLM-L6-v2'
     _pyclass: Type = HuggingFaceEmbeddings
 
     model_config = ConfigDict(

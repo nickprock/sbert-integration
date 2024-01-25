@@ -1,31 +1,25 @@
+from typing import Type, List
+
 from cat.mad_hatter.decorators import tool, hook, plugin
-from pydantic import BaseModel
-from datetime import datetime, date
+from cat.factory.embedder import EmbedderSettings
+from langchain_community.embeddings import HuggingFaceEmbeddings
+from pydantic import ConfigDict
 
-class MySettings(BaseModel):
-    required_int: int
-    optional_int: int = 69
-    required_str: str
-    optional_str: str = "meow"
-    required_date: date
-    optional_date: date = 1679616000
 
-@plugin
-def settings_model():
-    return MySettings
+class SBERTEmbedderConfig(EmbedderSettings):
+    model_name: str='paraphrase-multilingual-MiniLM-L12-v2'
+    _pyclass: Type = HuggingFaceEmbeddings
 
-@tool
-def get_the_day(tool_input, cat):
-    """Get the day of the week. Input is always None."""
+    model_config = ConfigDict(
+        json_schema_extra = {
+            "humanReadableName": "SBERT embedder",
+            "description": "Sentence Transformers Embedder",
+            "link": "https://www.sbert.net/index.html",
+        }
+    )
 
-    dt = datetime.now()
-
-    return dt.strftime('%A')
 
 @hook
-def before_cat_sends_message(message, cat):
-
-    prompt = f'Rephrase the following sentence in a grumpy way: {message["content"]}'
-    message["content"] = cat.llm(prompt)
-
-    return message
+def factory_allowed_embedders(allowed, cat) -> List:
+    allowed.append(SBERTEmbedderConfig)
+    return allowed

@@ -1,24 +1,21 @@
-# Sbert-Integration
+# SBERT-Integration
 
 [![awesome plugin](https://custom-icon-badges.demolab.com/static/v1?label=&message=awesome+plugin&color=383938&style=for-the-badge&logo=cheshire_cat_ai)](https://)
 
-Write here all the useful information about your plugin.
-
-This repository is the template to automate the release of official Cheshire Cat AI plugins. 
+This plugin allows you to use sentence transformer models.
 
 ## Usage
 
-1. Create a new repository clicking on the `Use this template` button.
-2. Clone your new repo directly in the Cat's `plugins` folder.
-3. Run the `setup.py` script:
-```bash
-python setup.py
-```
-The script will prompt you to write the name of your plugin and make an initial setup setting the name in the files.
+1. Download and enable the plugin.
 
-4. Start developing!
+![img1](https://github.com/nickprock/sbert-integration/blob/main/img/1.png)
+  
+2. Choose tour model from [Sentence Transformers](https://huggingface.co/sentence-transformers).
+
+![img2](https://github.com/nickprock/sbert-integration/blob/main/img/2.png)
+
+3. Enjoy!
 
 > **Important**
-> A new release of your plugin is triggered every time you set a new `version` in the `plugin.json` file.
-> Please, remember to set it correctly every time you want to release an update.
+> the first time the plugin is used it must download some dependencies, be patient.
 

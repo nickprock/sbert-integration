@@ -11,6 +11,9 @@ def get_settings():
     if os.path.isfile("cat/plugins/sbert-integration/settings.json"):
         with open("cat/plugins/sbert-integration/settings.json", "r") as json_file:
             settings = json.load(json_file)
+    elif os.path.isfile("cat/plugins/sbert_integration/settings.json"):
+        with open("cat/plugins/sbert_integration/settings.json", "r") as json_file:
+            settings = json.load(json_file)
     return settings
 
 class SBERTEmbedderConfig(EmbedderSettings):
@@ -25,28 +28,27 @@ class SBERTEmbedderConfig(EmbedderSettings):
             "link": "https://www.sbert.net/index.html",
         }
     )
-# settings = get_settings()
-# print(settings)
-# class MatryoshkaSBERTEmbedderConfig(EmbedderSettings):
+settings = get_settings()
+print(settings)
+class MatryoshkaSBERTEmbedderConfig(EmbedderSettings):
 
-#     model_name: str='mixedbread-ai/mxbai-embed-large-v1'
-#     cache_folder: str = "cat/data/models/sbert"
-#     # model_kwargs: Dict[str, Any] = {"truncate_dim":settings['truncate_dim']}
-#     model_kwargs: Dict[str, Any] = {"truncate_dim":get_settings()['truncate_dim']}
+    model_name: str='mixedbread-ai/mxbai-embed-large-v1'
+    cache_folder: str = "cat/data/models/sbert"
+    model_kwargs: Dict[str, Any] = {"truncate_dim":settings['truncate_dim']}
 
-#     _pyclass: Type = HuggingFaceEmbeddings
+    _pyclass: Type = HuggingFaceEmbeddings
 
-#     model_config = ConfigDict(
-#         json_schema_extra = {
-#             "humanReadableName": "Matryoshka SBERT embedder",
-#             "description": "Matryoshka Sentence Transformers Embedder",
-#             "link": "https://www.sbert.net/index.html",
-#         }
-#     )
+    model_config = ConfigDict(
+        json_schema_extra = {
+            "humanReadableName": "Matryoshka SBERT embedder",
+            "description": "Matryoshka Sentence Transformers Embedder",
+            "link": "https://www.sbert.net/index.html",
+        }
+    )
 
 
 @hook
 def factory_allowed_embedders(allowed, cat) -> List:
     allowed.append(SBERTEmbedderConfig)
-    # allowed.append(MatryoshkaSBERTEmbedderConfig)
+    allowed.append(MatryoshkaSBERTEmbedderConfig)
     return allowed

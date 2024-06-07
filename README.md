@@ -16,6 +16,13 @@ This plugin allows you to use sentence transformer models.
 
 3. Enjoy!
 
+## Docs
+
+Check the articles:
+
+* [How to use your favorite Embedder in Cheshire Cat.](https://medium.com/mad-chatter-tea-party/how-to-use-your-favorite-embedder-in-cheshire-cat-7e840c34693a)
+* [Matryoshka Embedding Model for Ordinary People](https://medium.com/mad-chatter-tea-party/matryoshka-embedding-model-for-ordinary-people-806e8df5ecb0)
+
 > **Important**
 >
 > the first time the plugin is used it must download some dependencies, be patient.

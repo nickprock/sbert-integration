@@ -27,6 +27,7 @@ class SBERTEmbedderConfig(EmbedderSettings):
     )
 settings = get_settings()
 print(settings)
+global settings
 class MatryoshkaSBERTEmbedderConfig(EmbedderSettings):
 
     model_name: str='mixedbread-ai/mxbai-embed-large-v1'

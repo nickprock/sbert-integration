@@ -25,27 +25,28 @@ class SBERTEmbedderConfig(EmbedderSettings):
             "link": "https://www.sbert.net/index.html",
         }
     )
-settings = get_settings()
-print(settings)
-global settings
-class MatryoshkaSBERTEmbedderConfig(EmbedderSettings):
+# settings = get_settings()
+# print(settings)
+# class MatryoshkaSBERTEmbedderConfig(EmbedderSettings):
 
-    model_name: str='mixedbread-ai/mxbai-embed-large-v1'
-    cache_folder: str = "cat/data/models/sbert"
-    model_kwargs: Dict[str, Any] = {"truncate_dim":settings['truncate_dim']}
-    _pyclass: Type = HuggingFaceEmbeddings
+#     model_name: str='mixedbread-ai/mxbai-embed-large-v1'
+#     cache_folder: str = "cat/data/models/sbert"
+#     # model_kwargs: Dict[str, Any] = {"truncate_dim":settings['truncate_dim']}
+#     model_kwargs: Dict[str, Any] = {"truncate_dim":get_settings()['truncate_dim']}
 
-    model_config = ConfigDict(
-        json_schema_extra = {
-            "humanReadableName": "Matryoshka SBERT embedder",
-            "description": "Matryoshka Sentence Transformers Embedder",
-            "link": "https://www.sbert.net/index.html",
-        }
-    )
+#     _pyclass: Type = HuggingFaceEmbeddings
+
+#     model_config = ConfigDict(
+#         json_schema_extra = {
+#             "humanReadableName": "Matryoshka SBERT embedder",
+#             "description": "Matryoshka Sentence Transformers Embedder",
+#             "link": "https://www.sbert.net/index.html",
+#         }
+#     )
 
 
 @hook
 def factory_allowed_embedders(allowed, cat) -> List:
     allowed.append(SBERTEmbedderConfig)
-    allowed.append(MatryoshkaSBERTEmbedderConfig)
+    # allowed.append(MatryoshkaSBERTEmbedderConfig)
     return allowed

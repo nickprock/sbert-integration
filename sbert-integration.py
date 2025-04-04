@@ -34,7 +34,7 @@ class MatryoshkaSBERTEmbedderConfig(EmbedderSettings):
 
     model_name: str='mixedbread-ai/mxbai-embed-large-v1'
     cache_folder: str = "cat/data/models/sbert"
-    model_kwargs: Dict[str, Any] = {"truncate_dim":settings['truncate_dim']}
+    model_kwargs: Dict[str, Any] = {"truncate_dim":settings['truncate_dim'], "trust_remote_code":True}
 
     _pyclass: Type = HuggingFaceEmbeddings
 

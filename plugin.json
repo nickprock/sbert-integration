@@ -1,6 +1,6 @@
 {
     "name": "Sbert-Integration",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "description": "Description of sbert-integration.",
     "author_name": "nickprock",
     "plugin_url": "https://github.com/nickprock/sbert-integration",
